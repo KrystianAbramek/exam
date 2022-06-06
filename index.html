@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="calculator">
+    <label>First number</label><br>
+    <input type="numer" id="first_number"><br><br>
+    <label>Second number</label><br>
+    <input type="numer" id="second_number"><br><br>
+    <label>Result</label><br>
+    <p id="result"></p>
+    <input type="button" onclick="add()" value="+">
+    <input type="button" onclick="substract()" value="-">
+    <input type="button" onclick="multiply()" value="*">
+    <input type="button" onclick="divide()" value="/"><br><br>
+</div>
+
+<form>
+    <label>Choose background color</label><br>
+    <input type="radio" id="1" name="bg-color" onclick="change_color(1)"><lable>Gray</lable><br>
+    <input type="radio" id="2" name="bg-color" onclick="change_color(2)"><lable>Light blue</lable><br>
+    <input type="radio" id="3" name="bg-color" onclick="change_color(3)"><lable>White</lable>
+</form><br><br>
+<form>
+    <label>Choose font size</label><br>
+    <input type="radio" id="1" name="font-size" onclick="change_font_size(12)"><lable>12</lable><br>
+    <input type="radio" id="2" name="font-size" onclick="change_font_size(14)"><lable>14</lable><br>
+    <input type="radio" id="3" name="font-size" onclick="change_font_size(18)"><lable>18</lable>
+</form>
+
+    <script>
+
+        function add()
+        {
+            var first_number = parseFloat(document.getElementById("first_number").value);
+            var second_number = parseFloat(document.getElementById("second_number").value);
+
+            document.getElementById("result").innerHTML = first_number + second_number;
+        }
+
+        function substract()
+        {
+            var first_number = parseFloat(document.getElementById("first_number").value);
+            var second_number = parseFloat(document.getElementById("second_number").value);
+
+            document.getElementById("result").innerHTML = first_number - second_number;
+        }
+
+        function multiply()
+        {
+            var first_number = parseFloat(document.getElementById("first_number").value);
+            var second_number = parseFloat(document.getElementById("second_number").value);
+
+            document.getElementById("result").innerHTML = first_number * second_number;
+        }
+
+        function divide()
+        {
+            var first_number = parseFloat(document.getElementById("first_number").value);
+            var second_number = parseFloat(document.getElementById("second_number").value);
+
+            if(second_number == 0)
+            {
+                document.getElementById("result").innerHTML = "Dividing by 0 error";
+            }
+            else
+            {
+                document.getElementById("result").innerHTML = first_number / second_number;
+            }
+        }
+
+        function change_color(value)
+        {
+            switch(value)
+            {
+                case 1:
+                    color = "#808080";
+                break;
+                case 2:
+                    color = "#ADD8E6";
+                break
+                case 3:
+                    color = "#FFFFFF";
+                break
+            }
+            document.getElementById('calculator').style.backgroundColor = color;
+            //document.body.style.backgroundColor = color;
+        }
+
+        function change_font_size(value)
+        {
+            switch(value)
+            {
+                case 12:
+                    size = "12px";
+                break;
+                case 14:
+                    size = "14px";
+                break;
+                case 18:
+                    size = "18px";
+                break;
+            }
+            document.getElementById('calculator').style.fontSize = size;
+        }
+    </script>
+    
+</body>
+</html>
