@@ -22,16 +22,17 @@
 
 <form>
     <label>Choose background color</label><br>
-    <input type="radio" id="1" name="bg-color" onclick="change_color(1)"><lable>Gray</lable><br>
-    <input type="radio" id="2" name="bg-color" onclick="change_color(2)"><lable>Light blue</lable><br>
-    <input type="radio" id="3" name="bg-color" onclick="change_color(3)"><lable>White</lable>
+    <input type="radio" id="1" name="bg-color" onclick="change_color(1)"><label>Gray</label><br>
+    <input type="radio" id="2" name="bg-color" onclick="change_color(2)"><label>Light blue</label><br>
+    <input type="radio" id="3" name="bg-color" onclick="change_color(3)"><label>White</label>
 </form><br><br>
 <form>
     <label>Choose font size</label><br>
-    <input type="radio" id="1" name="font-size" onclick="change_font_size(12)"><lable>12</lable><br>
-    <input type="radio" id="2" name="font-size" onclick="change_font_size(14)"><lable>14</lable><br>
-    <input type="radio" id="3" name="font-size" onclick="change_font_size(18)"><lable>18</lable>
-</form>
+    <input type="radio" id="12px" name="font-size" onclick="change_font_size()"><label>12</label><br>
+    <input type="radio" id="14px" name="font-size" onclick="change_font_size()"><label>14</label><br>
+    <input type="radio" id="18px" name="font-size" onclick="change_font_size()"><label>18</label><br><br>
+    Bold font?<input type="checkbox" id="bold" name="font-weight" onclick="change_font_weight()">
+</form><br><br>
 
     <script>
 
@@ -92,22 +93,33 @@
             //document.body.style.backgroundColor = color;
         }
 
-        function change_font_size(value)
+        function change_font_size()
         {
-            switch(value)
-            {
-                case 12:
-                    size = "12px";
-                break;
-                case 14:
-                    size = "14px";
-                break;
-                case 18:
-                    size = "18px";
-                break;
+            if(document.getElementById("12px").checked){
+                document.getElementById('calculator').style.fontSize = "12px";
             }
-            document.getElementById('calculator').style.fontSize = size;
+
+            if(document.getElementById("14px").checked){
+                document.getElementById('calculator').style.fontSize = "14px";
+            }
+
+            if(document.getElementById("18px").checked){
+                document.getElementById('calculator').style.fontSize = "18px";
+            }
         }
+
+
+        function change_font_weight()
+        {
+
+            if(document.getElementById("bold").checked)
+                document.getElementById("calculator").style.fontWeight = "bold";
+
+            if(!document.getElementById("bold").checked)
+                document.getElementById("calculator").style.fontWeight = "normal";
+
+        }
+
     </script>
     
 </body>
